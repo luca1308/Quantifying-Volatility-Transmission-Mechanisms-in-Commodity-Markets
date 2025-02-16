@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Research Abstract</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .control-panel {
+            background-color: var(--c-light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .control-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .control-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .interactive-tooltip {
+            position: absolute;
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none;
+        }
+        select, input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--c-grey);
+        }
+        .info-button {
+            background-color: var(--c-blue-muw);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <section class="page-header" style="background-color: var(--c-skin-muw);">
+            <h1 style="color: var(--c-blue-muw);">Interactive Research Abstract</h1>
+            <p style="color: var(--c-dark-grey);">Explore Volatility Transmission Patterns</p>
+        </section>
+
+        <!-- Interactive Control Panel -->
+        <section class="control-panel" style="max-width: 1200px; margin: 2rem auto;">
+            <h3 style="color: var(--c-blue-muw); margin-bottom: 1rem;">Analysis Controls</h3>
+            <div class="control-group">
+                <div class="control-item">
+                    <label for="timeRange">Time Period</label>
+                    <select id="timeRange" onchange="updatePlots()">
+                        <option value="1m">1 Month</option>
+                        <option value="6m">6 Months</option>
+                        <option value="1y" selected>1 Year</option>
+                        <option value="5y">5 Years</option>
+                    </select>
+                </div>
+                <div class="control-item">
+                    <label for="sectorFilter">Sector Focus</label>
+                    <select id="sectorFilter" onchange="updatePlots()">
+                        <option value="all">All Sectors</option>
+                        <option value="energy">Energy</option>
+                        <option value="mining">Mining</option>
+                        <option value="agriculture">Agriculture</option>
+                    </select>
+                </div>
+                <div class="control-item">
+                    <label for="modelType">Model Type</label>
+                    <select id="modelType" onchange="updatePlots()">
+                        <option value="garch">GARCH</option>
+                        <option value="egarch">EGARCH</option>
+                        <option value="tgarch">TGARCH</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-item">
+                    <label>Confidence Level</label>
+                    <input type="range" id="confidenceLevel" min="90" max="99" step="1" value="95" 
+                           oninput="document.getElementById('confidenceValue').textContent = this.value + '%'">
+                    <span id="confidenceValue">95%</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="abstract-content" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+            <!-- Visualization Grid -->
+            <div class="visualization-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 2rem;">
+                <!-- Enhanced plots with interactive features -->
+                <div class="plot-card" style="background-color: var(--c-light-green); padding: 1rem; border-radius: 8px; position: relative;">
+                    <h3 style="color: var(--c-green); margin-bottom: 1rem;">
+                        Cross-Sector Correlations
+                        <button class="info-button" onclick="showInfo('correlation')">i</button>
+                    </h3>
+                    <div id="correlationPlot" style="height: 400px;"></div>
+                    <div id="correlationInfo" class="interactive-tooltip">
+                        Displays the correlation strength between different commodity sectors
+                    </div>
+                </div>
+
+                <div class="plot-card" style="background-color: var(--c-light-purple); padding: 1rem; border-radius: 8px; position: relative;">
+                    <h3 style="color: var(--c-purple); margin-bottom: 1rem;">
+                        Volatility Network
+                        <button class="info-button" onclick="showInfo('network')">i</button>
+                    </h3>
+                    <div id="networkPlot" style="height: 400px;"></div>
+                    <div id="networkInfo" class="interactive-tooltip">
+                        Shows the interconnections and volatility transmission paths between sectors
+                    </div>
+                </div>
+
+                <div class="plot-card" style="background-color: var(--c-light-orange); padding: 1rem; border-radius: 8px; position: relative;">
+                    <h3 style="color: var(--c-orange); margin-bottom: 1rem;">
+                        Historical Patterns
+                        <button class="info-button" onclick="showInfo('timeseries')">i</button>
+                    </h3>
+                    <div id="timeSeriesPlot" style="height: 400px;"></div>
+                    <div id="timeseriesInfo" class="interactive-tooltip">
+                        Displays historical volatility patterns with configurable time windows
+                    </div>
+                </div>
+
+                <div class="plot-card" style="background-color: var(--c-light-red); padding: 1rem; border-radius: 8px; position: relative;">
+                    <h3 style="color: var(--c-red); margin-bottom: 1rem;">
+                        Model Performance
+                        <button class="info-button" onclick="showInfo('model')">i</button>
+                    </h3>
+                    <div id="garchPlot" style="height: 400px;"></div>
+                    <div id="modelInfo" class="interactive-tooltip">
+                        Compares different GARCH model performances and predictions
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/loadComponent.js"></script>
+    <script>
+        // Interactive features
+        function showInfo(plotType) {
+            const infoId = plotType + 'Info';
+            const tooltip = document.getElementById(infoId);
+            tooltip.style.display = tooltip.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function updatePlots() {
+            const timeRange = document.getElementById('timeRange').value;
+            const sectorFilter = document.getElementById('sectorFilter').value;
+            const modelType = document.getElementById('modelType').value;
+            const confidenceLevel = document.getElementById('confidenceLevel').value;
+
+            // Update correlation plot
+            updateCorrelationPlot(timeRange, sectorFilter);
+            // Update network plot
+            updateNetworkPlot(sectorFilter);
+            // Update time series plot
+            updateTimeSeriesPlot(timeRange, sectorFilter);
+            // Update GARCH plot
+            updateGarchPlot(modelType, confidenceLevel);
+        }
+
+        function updateCorrelationPlot(timeRange, sectorFilter) {
+            // Sample dynamic update
+            const correlationData = [{
+                type: 'heatmap',
+                z: [[1, 0.7 * Math.random(), 0.5 * Math.random()],
+                   [0.7 * Math.random(), 1, 0.3 * Math.random()],
+                   [0.5 * Math.random(), 0.3 * Math.random(), 1]],
+                x: ['Energy', 'Mining', 'Agriculture'],
+                y: ['Energy', 'Mining', 'Agriculture'],
+                colorscale: 'Viridis'
+            }];
+            Plotly.react('correlationPlot', correlationData);
+        }
+
+        // Initialize plots with default values
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePlots();
+        });
+    </script>
+</body>
+</html>

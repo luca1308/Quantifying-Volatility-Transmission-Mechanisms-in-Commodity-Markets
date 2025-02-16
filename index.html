@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Website</title>
+    <title>Volatility Transmission Research</title>
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
-    <!-- Navbar placeholder -->
     <div id="navbar-placeholder"></div>
 
     <main>
-        <section class="hero">
-            <h1>Welcome to Our Website</h1>
-            <p>Your modern web solution</p>
+        <section class="hero" style="background-color: var(--c-skin-muw);">
+            <h1 style="color: var(--c-blue-muw);">Volatility Transmission in Commodity Markets</h1>
+            <p style="color: var(--c-dark-grey);">Quantifying Volatility Transmission Mechanisms across Energy, Mining, and Agricultural Sectors</p>
         </section>
 
-        <section class="features">
-            <h2>Our Features</h2>
+        <section class="features" style="background-color: var(--c-grey);">
+            <h2 style="color: var(--c-blue-muw); text-align: center; margin-bottom: 2rem;">Research Overview</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Feature 1</h3>
-                    <p>Description of feature 1</p>
+                <div class="feature-card" style="background-color: var(--c-light-blue);">
+                    <h3 style="color: var(--c-blue-muw);">Research Framework</h3>
+                    <p style="color: var(--c-dark-grey);">Investigation of volatility transmission using GARCH models and advanced econometric techniques</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Feature 2</h3>
-                    <p>Description of feature 2</p>
+                <div class="feature-card" style="background-color: var(--c-light-green);">
+                    <h3 style="color: var(--c-blue-muw);">Data Analysis</h3>
+                    <p style="color: var(--c-dark-grey);">Comprehensive analysis of 20+ years of commodity market data from multiple sources</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Feature 3</h3>
-                    <p>Description of feature 3</p>
+                <div class="feature-card" style="background-color: var(--c-light-purple);">
+                    <h3 style="color: var(--c-blue-muw);">Key Findings</h3>
+                    <p style="color: var(--c-dark-grey);">Investigation of cross-sector volatility spillovers and their implications for risk management</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links" style="background-color: var(--c-light-orange); padding: 2rem 0; margin-top: 2rem;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+                <h2 style="color: var(--c-blue-muw); text-align: center; margin-bottom: 2rem;">Quick Access</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <a href="pages/comprehensive.html" style="text-decoration: none;">
+                        <div class="link-card" style="background-color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <h3 style="color: var(--c-blue-muw);">Research Abstract</h3>
+                            <p style="color: var(--c-dark-grey);">Interactive overview of research findings</p>
+                        </div>
+                    </a>
+                    <a href="pages/methodology.html" style="text-decoration: none;">
+                        <div class="link-card" style="background-color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <h3 style="color: var(--c-blue-muw);">Methodology</h3>
+                            <p style="color: var(--c-dark-grey);">Detailed research methodology and models</p>
+                        </div>
+                    </a>
+                    <a href="pages/results.html" style="text-decoration: none;">
+                        <div class="link-card" style="background-color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <h3 style="color: var(--c-blue-muw);">Results</h3>
+                            <p style="color: var(--c-dark-grey);">Key findings and implications</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component loader script -->
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             try {
@@ -69,12 +92,11 @@
 
             } catch (error) {
                 console.error('Error loading components:', error);
-                // Show error message on the page
                 const errorStyle = 'color: red; padding: 20px; background: #ffebee; border: 1px solid #ffcdd2; margin: 10px;';
                 document.getElementById('navbar-placeholder').innerHTML = 
-                    `<div style="${errorStyle}">Error loading navbar. Please make sure you're running a local server.</div>`;
+                    `<div style="${errorStyle}">Error loading navbar. Please ensure proper server setup.</div>`;
                 document.getElementById('footer-placeholder').innerHTML = 
-                    `<div style="${errorStyle}">Error loading footer. Please make sure you're running a local server.</div>`;
+                    `<div style="${errorStyle}">Error loading footer. Please ensure proper server setup.</div>`;
             }
         });
     </script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Sources and Analysis</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <section class="page-header" style="background-color: var(--c-light-blue);">
+            <h1 style="color: var(--c-blue-muw);">Data Sources and Analysis</h1>
+            <p style="color: var(--c-dark-grey);">20+ Years of Historical Market Data</p>
+        </section>
+
+        <!-- Data Sources Overview -->
+        <section class="data-content" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+            <div class="data-sources" style="background-color: var(--c-light-purple); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h2 style="color: var(--c-purple);">Primary Data Sources</h2>
+                <div class="source-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1rem;">
+                    <div class="source-card" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Commodity Price Data</h3>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>Eikon (Commodity Research Bureau)</li>
+                            <li>Chicago Board Options Exchange</li>
+                            <li>Time Period: 2000-2024</li>
+                        </ul>
+                    </div>
+                    <div class="source-card" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Economic Indicators</h3>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>Federal Reserve Bank of Saint Louis</li>
+                            <li>European Central Bank</li>
+                            <li>World Bank Indicators</li>
+                        </ul>
+                    </div>
+                    <div class="source-card" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Sector-Specific Data</h3>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>U.S. Department of Energy</li>
+                            <li>FAO Agricultural Database</li>
+                            <li>U.S. Geological Survey</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variable Descriptions -->
+            <div class="variables-section" style="background-color: var(--c-light-green); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h2 style="color: var(--c-green);">Key Variables</h2>
+                <div class="variable-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 1rem;">
+                    <div class="variable-group" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Commodity Prices</h3>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>Spot Prices</li>
+                            <li>Futures Prices</li>
+                            <li>Volatility Indices</li>
+                        </ul>
+                    </div>
+                    <div class="variable-group" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Macroeconomic Indicators</h3>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>GDP Growth Rates</li>
+                            <li>Inflation Rates</li>
+                            <li>Interest Rates</li>
+                        </ul>
+                    </div>
+                    <div class="variable-group" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Market Metrics</h3>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>Trading Volumes</li>
+                            <li>Market Volatility</li>
+                            <li>Exchange Rates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analysis Methods -->
+            <div class="analysis-section" style="background-color: var(--c-light-orange); padding: 2rem; border-radius: 8px;">
+                <h2 style="color: var(--c-orange);">Data Analysis Framework</h2>
+                <div class="analysis-flow" style="margin-top: 1rem;">
+                    <div class="analysis-step" style="background-color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3 style="color: var(--c-blue-muw);">Data Preprocessing</h3>
+                        <p style="color: var(--c-dark-grey);">
+                            Comprehensive data cleaning and preparation process including:
+                        </p>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>Missing value imputation</li>
+                            <li>Outlier detection and treatment</li>
+                            <li>Time series alignment</li>
+                        </ul>
+                    </div>
+                    <div class="analysis-step" style="background-color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3 style="color: var(--c-blue-muw);">Statistical Analysis</h3>
+                        <p style="color: var(--c-dark-grey);">
+                            Implementation of advanced statistical methods:
+                        </p>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>GARCH model implementation</li>
+                            <li>Correlation analysis</li>
+                            <li>Volatility spillover detection</li>
+                        </ul>
+                    </div>
+                    <div class="analysis-step" style="background-color: white; padding: 1rem; border-radius: 8px;">
+                        <h3 style="color: var(--c-blue-muw);">Validation Methods</h3>
+                        <p style="color: var(--c-dark-grey);">
+                            Rigorous validation techniques including:
+                        </p>
+                        <ul style="color: var(--c-dark-grey);">
+                            <li>Cross-validation procedures</li>
+                            <li>Robustness checks</li>
+                            <li>Sensitivity analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/loadComponent.js"></script>
+</body>
+</html>

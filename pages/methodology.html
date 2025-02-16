@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology - GARCH Models and Analysis</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <section class="page-header" style="background-color: var(--c-light-red);">
+            <h1 style="color: var(--c-red);">Research Methodology</h1>
+            <p style="color: var(--c-dark-grey);">Quantitative Analysis Using GARCH Models</p>
+        </section>
+
+        <section class="methodology-content" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+            <div class="model-section" style="background-color: var(--c-grey); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h2 style="color: var(--c-blue-muw); margin-bottom: 1rem;">GARCH Model Components</h2>
+                <div style="background-color: white; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+                    <p style="font-family: 'Courier New', monospace; color: var(--c-dark-grey);">
+                        rt = μ + εt
+                        εt = σtzt
+                        σ²t = ω + αε²t-1 + βσ²t-1
+                    </p>
+                </div>
+                <p style="color: var(--c-dark-grey);">
+                    Where rt represents return at time t, μ is mean return, εt is the error term,
+                    σt is conditional standard deviation, and zt is i.i.d. error term.
+                </p>
+            </div>
+
+            <div class="analysis-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="analysis-card" style="background-color: var(--c-light-blue); padding: 2rem; border-radius: 8px;">
+                    <h3 style="color: var(--c-blue); margin-bottom: 1rem;">Part 1: Single Commodity Analysis</h3>
+                    <ul style="color: var(--c-dark-grey); list-style-type: none;">
+                        <li style="margin-bottom: 0.5rem;">• Pooled Mean Approach</li>
+                        <li style="margin-bottom: 0.5rem;">• EGARCH Implementation</li>
+                        <li style="margin-bottom: 0.5rem;">• Variable Impact Assessment</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-card" style="background-color: var(--c-light-green); padding: 2rem; border-radius: 8px;">
+                    <h3 style="color: var(--c-green); margin-bottom: 1rem;">Part 2: Cross-Sector Analysis</h3>
+                    <ul style="color: var(--c-dark-grey); list-style-type: none;">
+                        <li style="margin-bottom: 0.5rem;">• DCC-GARCH Models</li>
+                        <li style="margin-bottom: 0.5rem;">• Volatility Spillover Analysis</li>
+                        <li style="margin-bottom: 0.5rem;">• Transmission Pattern Detection</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/loadComponent.js"></script>
+</body>
+</html>
