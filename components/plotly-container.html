@@ -1,0 +1,51 @@
+// components/plotly-container.html
+<div class="plotly-container">
+    <div class="plotly-grid">
+        <!-- Individual plot containers will be added here -->
+        <div class="plot-item">
+            <!-- Example: -->
+            <iframe src="../plots/plot1.html" frameborder="0" class="plotly-iframe"></iframe>
+        </div>
+    </div>
+</div>
+
+<style>
+    .plotly-container {
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+
+    .plotly-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+
+    .plot-item {
+        background: #fff;
+        border: 1px solid #eaeaea;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .plotly-iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .plotly-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plotly-iframe {
+            height: 350px;
+        }
+    }
+</style>

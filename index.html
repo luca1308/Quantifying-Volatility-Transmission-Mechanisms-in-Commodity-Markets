@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Website</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <!-- Navbar placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Our Website</h1>
+            <p>Your modern web solution</p>
+        </section>
+
+        <section class="features">
+            <h2>Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Feature 1</h3>
+                    <p>Description of feature 1</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Feature 2</h3>
+                    <p>Description of feature 2</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Feature 3</h3>
+                    <p>Description of feature 3</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Component loader script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Load navbar
+                const navResponse = await fetch('components/navbar.html');
+                if (!navResponse.ok) {
+                    throw new Error(`Failed to load navbar: ${navResponse.status}`);
+                }
+                const navHtml = await navResponse.text();
+                document.getElementById('navbar-placeholder').innerHTML = navHtml;
+                
+                // Initialize mobile menu after navbar is loaded
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navLinks = document.querySelector('.nav-links');
+                
+                mobileMenu?.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                });
+
+                // Load footer
+                const footerResponse = await fetch('components/footer.html');
+                if (!footerResponse.ok) {
+                    throw new Error(`Failed to load footer: ${footerResponse.status}`);
+                }
+                const footerHtml = await footerResponse.text();
+                document.getElementById('footer-placeholder').innerHTML = footerHtml;
+
+            } catch (error) {
+                console.error('Error loading components:', error);
+                // Show error message on the page
+                const errorStyle = 'color: red; padding: 20px; background: #ffebee; border: 1px solid #ffcdd2; margin: 10px;';
+                document.getElementById('navbar-placeholder').innerHTML = 
+                    `<div style="${errorStyle}">Error loading navbar. Please make sure you're running a local server.</div>`;
+                document.getElementById('footer-placeholder').innerHTML = 
+                    `<div style="${errorStyle}">Error loading footer. Please make sure you're running a local server.</div>`;
+            }
+        });
+    </script>
+</body>
+</html>
